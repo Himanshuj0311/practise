@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/car.css"> <!-- Link to your car booking page's CSS file -->
+    <title>Car Booking</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="flight.html">Flights</a></li>
+                <li><a href="hotel.html">Hotels</a></li>
+                <li><a href="car.html">Cars</a></li> <!-- Highlight the current page in your navigation -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Car Booking</h1>
+        <p>Book your rental car for a smooth journey.</p>
+
+        <!-- Car booking form -->
+        <form id="carForm">
+            <label for="pickupLocation">Pickup Location</label>
+            <input type="text" id="pickupLocation" name="pickupLocation" required>
+
+            <label for="dropoffLocation">Drop-off Location</label>
+            <input type="text" id="dropoffLocation" name="dropoffLocation" required>
+
+            <label for="pickupDate">Pickup Date</label>
+            <input type="date" id="pickupDate" name="pickupDate" required>
+
+            <input type="submit" value="Search">
+        </form>
+
+        <!-- Car search results will be displayed here -->
+        <div id="carResults"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Travel Booking System</p>
+    </footer>
+
+    <script src="js/car.js"></script> <!-- Link to your car booking page's JavaScript file -->
+</body>
+</html>

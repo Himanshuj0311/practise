@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/hotel.css"> <!-- Link to your hotel booking page's CSS file -->
+    <title>Hotel Booking</title>
+</head>
+<body>
+    <header title="Hotel Booking">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="flight.html">Flights</a></li>
+                <li><a href="hotel.html">Hotels</a></li> <!-- Highlight the current page in your navigation -->
+                <li><a href="car.html">Cars</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1>Hotel Booking</h1>
+        <p>Find and book the perfect hotel for your trip.</p>
+
+        <!-- Hotel booking form -->
+        <form id="hotelForm">
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="checkInDate">Check-In Date</label>
+            <input type="date" id="checkInDate" name="checkInDate" required>
+
+            <label for="checkOutDate">Check-Out Date</label>
+            <input type="date" id="checkOutDate" name="checkOutDate" required>
+
+            <input type="submit" value="Search">
+        </form>
+
+        <!-- Hotel search results will be displayed here -->
+        <div id="hotelResults" class="hotel-results"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Travel Booking System</p>
+    </footer>
+
+    <script src="js/hotel.js"></script> <!-- Link to your hotel booking page's JavaScript file -->
+</body>
+</html>

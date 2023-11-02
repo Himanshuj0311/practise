@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.room-list {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+.navbar {
+    background-color: #007BFF;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./room.html">Rooms</a></li>
+                <li><a href="./chat.html">Chat</a></li>
+            </ul>
+        </div>
+        <div class="form">
+            <h2>Create Room</h2>
+            <form id="createRoomForm">
+                <input type="text" id="roomName" placeholder="Room Name" required>
+                <input type="text" id="participantList" placeholder="Comma-separated Participants" required>
+                <button type="submit">Create Room</button>
+            </form>
+        </div>
+        <div class="room-list">
+            <h2>Room List</h2>
+            <ul id="roomList">
+                <!-- Rooms will be displayed here -->
+            </ul>
+        </div>
+    </div>
+
+    <script >
+
+document.addEventListener('DOMContentLoaded', function () {
+    const createRoomForm = document.getElementById('createRoomForm');
+    const roomNameInput = document.getElementById('roomName');
+    const participantListInput = document.getElementById('participantList');
+    const roomList = document.getElementById('roomList');
+
+    createRoomForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const roomName = roomNameInput.value;
+        const participants = participantListInput.value.split(',').map(participant => participant.trim());
+
+        try {
+            const response = await fetch('http://localhost:5000/rooms/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: roomName, participants }),
+            });
+
+            if (response.status === 201) {
+                const room = await response.json();
+                appendRoomToList(room);
+            } else {
+                alert('Error creating room');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+    // Function to add a room to the room list
+    function appendRoomToList(room) {
+        const roomItem = document.createElement('li');
+        roomItem.textContent = `Room Name: ${room.name}, Participants: ${room.participants.map(p => p.username).join(', ')}`;
+        roomList.appendChild(roomItem);
+    }
+
+    // Function to fetch and display the list of rooms
+    async function fetchAndDisplayRooms() {
+        try {
+            const response = await fetch('http://localhost:5000/rooms/list');
+            if (response.status === 200) {
+                const rooms = await response.json();
+                rooms.forEach(room => appendRoomToList(room));
+            } else {
+                alert('Error fetching rooms');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    // Call the function to fetch and display rooms when the page loads
+    fetchAndDisplayRooms();
+});
+
+    </script>
+</body>
+</html>

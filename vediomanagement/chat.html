@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 300px;
+}
+
+.chat {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    overflow-y: scroll;
+    max-height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.navbar {
+    background-color: #007BFF;
+    width: 100%;
+    padding: 10px 0;
+    
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./room.html">Rooms</a></li>
+                <li><a href="./chat.html">Chat</a></li>
+            </ul>
+        </div>
+        <div class="chat">
+            <h2>Chat Room</h2>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Chat messages will be displayed here -->
+            </div>
+            <form id="sendMessageForm">
+                <input type="text" id="messageInput" placeholder="Type a message" required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script >
+
+document.addEventListener('DOMContentLoaded', function () {
+    const chatMessages = document.getElementById('chatMessages');
+    const sendMessageForm = document.getElementById('sendMessageForm');
+    const messageInput = document.getElementById('messageInput');
+
+    // Function to add a new chat message to the chat window
+    function appendChatMessage(sender, message) {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = `${sender}: ${message}`;
+        chatMessages.appendChild(messageElement);
+    }
+
+    sendMessageForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const message = messageInput.value;
+
+        // Send the message to the server (you should replace '/sendMessage' with your actual endpoint)
+        try {
+            const response = await fetch('http://localhost:5000/chat/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ room: 'your_room_id', sender: 'your_sender_id', message }),
+            });
+
+            if (response.status === 201) {
+                appendChatMessage('You', message);
+                messageInput.value = ''; // Clear the input field
+            } else {
+                alert('Error sending message');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+    // Function to fetch and display chat messages (you should replace '/getMessagesInRoom' with your actual endpoint)
+    async function fetchAndDisplayMessages() {
+        try {
+            const response = await fetch('http://localhost:5000/chat/room/:roomId/messages'); // Replace 'your_room_id' with the actual room ID
+            if (response.status === 200) {
+                const messageTexts = await response.json();
+                messageTexts.forEach(message => {
+                    appendChatMessage('Sender', message);
+                });
+            } else {
+                alert('Error fetching messages');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    // Call the function to fetch and display messages when the page loads
+    fetchAndDisplayMessages();
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <link rel="stylesheet" href="./css/flight.css">
+    <script src="js/flight.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Flight Booking</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hotel.html">Hotel Booking</a></li>
+                <li><a href="car.html">Car Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Find Your Flight</h2>
+        <form id="flightBookingForm">
+            <label for="departure">Departure City:</label>
+            <input type="text" id="departure" name="departure" required><br>
+
+            <label for="arrival">Arrival City:</label>
+            <input type="text" id="arrival" name="arrival" required><br>
+
+            <label for="departureDate">Departure Date:</label>
+            <input type="date" id="departureDate" name="departureDate" required><br>
+
+            <input type="submit" value="Search Flights">
+        </form>
+
+        <div id="flightResults">
+            <!-- Flight search results will be displayed here -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Travel Booking System</p>
+    </footer>
+</body>
+</html>

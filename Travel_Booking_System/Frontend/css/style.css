@@ -1,0 +1,113 @@
+/* Reset default styles */
+body, h1, ul, li, p, a, img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set background color and fonts */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #ff6600; /* Vibrant orange background color */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Style the navigation menu */
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Style the navigation links on hover */
+nav ul li a:hover {
+    color: #fff; /* Change color on hover to make it more visible */
+}
+
+/* Create an underline effect on hover */
+nav ul li a::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::before {
+    width: 100%; /* Expand the underline on hover */
+}
+
+/* Style the main content section */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Increase border radius for a softer look */
+}
+
+/* Style the homepage content */
+.homepage-content {
+    text-align: center;
+}
+
+.homepage-content h2 {
+    font-size: 36px; /* Larger heading for emphasis */
+    margin-bottom: 20px;
+    color: #333; /* Darker text color */
+}
+
+.homepage-content p {
+    font-size: 20px; /* Larger text size */
+    margin-bottom: 30px;
+    color: #666; /* Slightly lighter text color */
+}
+
+.homepage-content img {
+    width: 100%;
+    height: 400px;
+    margin: 20px 0;
+    border-radius: 10px; /* Add rounded corners to images */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to images */
+}
+
+/* Style the call-to-action buttons */
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px;
+    background-color: #ff6600; /* Vibrant call-to-action color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ff8533; /* Slightly lighter color on hover */
+}

@@ -1,0 +1,131 @@
+/* Reset default styles */
+body, h1, ul, li, p, a, img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set background color and fonts */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #ff6600; /* Set a vibrant orange background color */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Style the navigation menu */
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    position: relative;
+    color: #333; /* Dark text color for navigation links */
+}
+
+/* Style the navigation links on hover */
+nav ul li a:hover {
+    color: #ff8533; /* Lighter orange color on hover */
+}
+
+/* Create an underline effect on hover */
+nav ul li a::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #ff8533; /* Lighter orange color for underline effect */
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::before {
+    width: 100%; /* Expand the underline on hover */
+}
+
+/* Style the main content section */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Style the flight search form */
+form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light gray background color */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+}
+
+input[type="text"],
+input[type="date"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* White background color */
+    color: #333; /* Dark text color */
+}
+
+input[type="submit"] {
+    background-color: #ff6600; /* Vibrant call-to-action color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff8533; /* Slightly lighter color on hover */
+}
+
+/* Style the flight search results */
+#flightResults {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+/* Add hover effect to list items */
+ul li:hover {
+    background-color: #f5f5f5;
+}
