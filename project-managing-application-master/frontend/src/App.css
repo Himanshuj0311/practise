@@ -1,0 +1,241 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* App.css */
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.task-management {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 20px;
+}
+
+/* Left section styles */
+.left-section {
+  width: 70%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.task-list {
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+}
+
+h4 {
+  margin: 0;
+}
+
+.task-due-date,
+.task-assignee {
+  font-size: 14px;
+  color: #777;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.create-task {
+  margin: 20px 0;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 100px;
+}
+
+input[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Assigned and Completed Tasks styles */
+.task-list ul {
+  margin: 0;
+  padding: 0;
+}
+
+.task-list li {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.completed-task-list {
+  margin-top: 20px;
+}
+
+/* Right section styles */
+.right-section {
+  width: 30%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.chat-messages {
+  height: 300px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.chat-message {
+  padding: 5px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.chat-input select,
+.chat-input input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.chat-input input[type="text"] {
+  height: 40px;
+}
+
+.chat-input button {
+  background-color: #2b2d42;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Styling for the select your name dropdown */
+#writerName {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+.left-section {
+  background-color: #8d99ae;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.create-task {
+  background-color: #8d99ae;
+}
+
+input[type="text"],
+select,
+textarea {
+  background-color: #E5E5E5;
+}
+
+input[type="submit"] {
+  background-color: #2b2d42;
+}
+
+
+.right-section {
+  background-color: #8d99ae;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.chat-messages {
+  background-color: #FFF;
+  border: 1px solid #E5E5E5;
+}
